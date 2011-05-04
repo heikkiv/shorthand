@@ -23,7 +23,7 @@ public class UrlRepositoryMongoDb implements UrlRepository {
 		try {
 			mongo = new Mongo( "flame.mongohq.com" , 27075 );
 			db = mongo.getDB( "urls" );
-			db.authenticate("heikki", "helppo".toCharArray());
+			db.authenticate("YOUR_USERNAME", "YOUR_PASSWORD".toCharArray());
 			collection = db.getCollection("urls");
 		} catch (Exception e) {
 			throw new RuntimeException("Problem initializing MongoDb", e);
