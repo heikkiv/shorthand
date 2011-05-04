@@ -1,0 +1,135 @@
+<project name="shorthand" default="main" basedir="." 
+	xmlns:ivy="antlib:org.apache.ivy.ant">
+
+	<property name="src.dir.main"     	value="src/main/java"/>
+	<property name="src.dir.test"     	value="src/test/java"/>
+	<property name="config.dir.main"    value="webapp/WEB-INF/classes"/>
+    <property name="build.dir"   		value="build"/>
+    <property name="classes.dir.main" 	value="${build.dir}/main"/>
+	<property name="classes.dir.test" 	value="${build.dir}/test"/>
+	<property name="jar.dir"     		value="${build.dir}/jar"/>
+	<property name="report.dir"  		value="${build.dir}/reports"/>
+	<property name="jetty.dir"  		value="${build.dir}/jetty"/>
+	<property name="jetty.lib.dir"  	value="jetty"/>
+    <property name="deploy.dir"     	value="webapp/WEB-INF/lib"/>
+	<property name="lib.dir"     		value="webapp/WEB-INF/lib"/>
+	<property name="ivy.lib.dir" 		value="${lib.dir}"/>
+	<property name="web.home"      		value="webapp"/>
+	<property name="webapp.name"      	value="ROOT"/>
+
+	<path id="jetty.plugin.classpath">
+		<fileset dir="jetty" includes="*.jar" />
+	</path>
+	
+	<taskdef classpathref="jetty.plugin.classpath" resource="tasks.properties" loaderref="jetty.loader" />
+	
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+    	<fileset dir="${jetty.lib.dir}" includes="servlet-api*.jar"/>
+    </path>
+	
+	<path id="classpath.test">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+		<pathelement location="${classes.dir.main}"/>
+		<fileset dir="${jetty.lib.dir}" includes="servlet-api*.jar"/>
+    </path>
+	
+	<path id="classpath.runtime">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+		<fileset dir="${jar.dir}" includes="**/*.jar"/>
+		<fileset dir="${jetty.lib.dir}" includes="servlet-api*.jar"/>
+    </path>
+	
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    	<delete file="${deploy.dir}/${ant.project.name}.jar"/>
+    </target>
+
+	<target name="compile" depends="compile.main, compile.test">
+		<echo>Compilation finished</echo>
+	</target>
+	
+    <target name="compile.main">
+        <mkdir dir="${classes.dir.main}"/>
+        <javac srcdir="${src.dir.main}" destdir="${classes.dir.main}" classpathref="classpath"/>
+    	<copy todir="${classes.dir.main}">
+            <fileset dir="${src.dir.main}">
+            	<exclude name="**/*.java"/>
+        	</fileset>
+    		<fileset dir="${config.dir.main}">
+    			<exclude name="struts.*"/>
+			</fileset>        </copy>
+    </target>
+	
+	<target name="compile.test">
+        <mkdir dir="${classes.dir.test}"/>
+        <javac srcdir="${src.dir.test}" destdir="${classes.dir.test}" classpathref="classpath.test"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir.main}" >
+        	<exclude name="*.xml"/>
+        	<exclude name="*.properties"/>
+        </jar>
+    	<jar destfile="${jar.dir}/${ant.project.name}-test.jar" basedir="${classes.dir.test}" />
+    </target>
+
+	<target name="run" depends="run.jetty" />
+	
+	<target name="test" depends="run.junit, run.junitreport" />
+	
+	<target name="run.junit" depends="jar">
+        <mkdir dir="${report.dir}/junit/xml"/>
+        <junit printsummary="yes" haltonfailure="no" fork="yes" maxmemory="512m">
+            <formatter type="xml"/>
+            <classpath>
+                <path refid="classpath.runtime"/>
+            </classpath>
+            <batchtest todir="${report.dir}/junit/xml">
+                <fileset dir="${classes.dir.test}"/>
+            </batchtest>
+        </junit>
+    </target>
+	
+	<target name="run.junitreport">
+        <junitreport todir="${report.dir}/junit/xml">
+            <fileset dir="${report.dir}/junit/xml" includes="TEST-*.xml"/>
+            <report todir="${report.dir}/junit"/>
+        </junitreport>
+    </target>
+	
+	<target name="run.jetty" depends="jar, deploy">
+		<jetty tempDirectory="${jetty.dir}">
+			<webapp name="name" warfile="webapp/" contextpath="/" />
+		</jetty>
+	</target>
+	
+	<target name="deploy" depends="jar">
+        <copy todir="${deploy.dir}">
+            <fileset file="${jar.dir}/${ant.project.name}.jar"/>
+        </copy>
+    </target>
+	
+	<target name="package" depends="deploy" description="Create WAR file for binary distribution">
+		<jar jarfile="${webapp.name}.war" basedir="${web.home}"/>
+	</target>
+	
+	<target name="ivy-configure">
+		<ivy:configure file="ivysettings.xml" />
+    </target>
+	
+	<target name="ivy-report" description="Report dependencies with ivy" depends="ivy-configure">
+		<ivy:resolve/>
+		<ivy:report todir="${report.dir}/ivy"/>
+    </target>
+	
+	<target name="ivy-retrieve" description="Retrieve dependencies with ivy" depends="ivy-configure">
+        <ivy:retrieve type="jar" sync="true"/>
+    </target>
+
+    <target name="main" depends="clean,run.jetty"/>
+	
+	<target name="all" depends="clean,run"/>
+
+</project>

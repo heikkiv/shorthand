@@ -1,0 +1,21 @@
+<ivy-module version="2.0">
+    <info organisation="com.futuremark" module="orb"/>
+    
+    <configurations>
+        <conf name="default" />
+	</configurations>
+    
+    <dependencies>
+    	<dependency org="org.springframework" name="org.springframework.core" rev="3.0.5.RELEASE" conf="default->runtime" />
+    	<dependency org="org.springframework" name="org.springframework.jdbc" rev="3.0.5.RELEASE" conf="default->runtime" />
+        <dependency org="org.springframework" name="org.springframework.orm" rev="3.0.5.RELEASE" conf="default->runtime" />
+        <dependency org="org.springframework" name="org.springframework.web" rev="3.0.5.RELEASE" conf="default->runtime" />
+        <dependency org="org.springframework" name="org.springframework.web.servlet" rev="3.0.5.RELEASE" conf="default->runtime" />
+        <dependency org="org.hibernate" name="hibernate-validator-annotation-processor" rev="4.1.0.Final" conf="default->default"/>
+        <dependency org="org.mongodb" name="mongo-java-driver" rev="2.4"/>
+        <dependency org="org.slf4j" name="com.springsource.slf4j.log4j" rev="1.5.10" conf="default->runtime" />
+        <dependency org="org.apache.log4j" name="com.springsource.org.apache.log4j" rev="1.2.15" conf="default->runtime" />
+        <dependency org="junit" name="junit" rev="4.8.1" conf="default->default" />
+    </dependencies>
+    
+</ivy-module>
