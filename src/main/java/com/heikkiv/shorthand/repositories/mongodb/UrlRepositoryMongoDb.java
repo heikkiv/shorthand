@@ -36,12 +36,15 @@ public class UrlRepositoryMongoDb implements UrlRepository {
 		if(sequenceDoc == null) {
 			sequenceDoc = new BasicDBObject("_id", "sequence");
 			sequenceDoc.put("nextkey", 1);
+			collection.save(sequenceDoc);
+			return 1;
+		} else {
+			int nextKey = (Integer) sequenceDoc.get("nextkey");
+			DBObject modifier = new BasicDBObject("nextkey", 1);
+			DBObject inc = new BasicDBObject("$inc", modifier);
+			collection.update(new BasicDBObject("_id", "sequence"), inc);
+			return nextKey + 1;
 		}
-		int nextKey = (Integer) sequenceDoc.get("nextkey");
-		nextKey += 1;
-		sequenceDoc.put("nextkey", nextKey);
-		collection.save(sequenceDoc);
-		return nextKey;
 	}
 
 	@Override

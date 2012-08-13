@@ -44,6 +44,8 @@ public class UrlRepositoryMongoDbTest {
 		int key = urlRepository.nextKey();
 		System.out.println(key);
 		assertTrue(key > 0);
+		int key2 = urlRepository.nextKey();
+		assertTrue(key2 > key);
 	}
 	
 	@Test
