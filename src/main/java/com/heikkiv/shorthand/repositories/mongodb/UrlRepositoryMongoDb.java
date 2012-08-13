@@ -9,6 +9,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
+import com.mongodb.BasicDBObject;
 import com.mongodb.Mongo;
 
 @Repository
@@ -21,9 +22,8 @@ public class UrlRepositoryMongoDb implements UrlRepository {
 	@PostConstruct
 	public void init() {
 		try {
-			mongo = new Mongo( "flame.mongohq.com" , 27075 );
+			mongo = new Mongo( "127.0.0.1" , 27017 );
 			db = mongo.getDB( "urls" );
-			db.authenticate("YOUR_USERNAME", "YOUR_PASSWORD".toCharArray());
 			collection = db.getCollection("urls");
 		} catch (Exception e) {
 			throw new RuntimeException("Problem initializing MongoDb", e);
@@ -31,8 +31,12 @@ public class UrlRepositoryMongoDb implements UrlRepository {
 	}
 	
 	@Override
-	public int nextKey() {
-		DBObject sequenceDoc = collection.findOne();
+	public synchronized int nextKey() {
+		DBObject sequenceDoc = collection.findOne(new BasicDBObject("_id", "sequence"));
+		if(sequenceDoc == null) {
+			sequenceDoc = new BasicDBObject("_id", "sequence");
+			sequenceDoc.put("nextkey", 1);
+		}
 		int nextKey = (Integer) sequenceDoc.get("nextkey");
 		nextKey += 1;
 		sequenceDoc.put("nextkey", nextKey);

@@ -16,11 +16,8 @@ public class UrlRepositoryMongoDbTest {
 	@Ignore
 	@Test
 	public void genericInsert() throws Exception {
-		Mongo m = new Mongo( "flame.mongohq.com" , 27075 );
-
+		Mongo m = new Mongo( "127.0.0.1" , 27017 );
 		DB db = m.getDB( "urls" );
-		db.authenticate("heikki", "helppo".toCharArray());
-		
 		DBCollection coll = db.getCollection("urls");
 		
 		BasicDBObject doc = new BasicDBObject();
@@ -32,11 +29,8 @@ public class UrlRepositoryMongoDbTest {
 	
 	@Test
 	public void find() throws Exception {
-		Mongo m = new Mongo( "flame.mongohq.com" , 27075 );
-
+		Mongo m = new Mongo( "127.0.0.1" , 27017 );
 		DB db = m.getDB( "urls" );
-		db.authenticate("heikki", "helppo".toCharArray());
-		
 		DBCollection coll = db.getCollection("urls");
 		
 		DBObject myDoc = coll.findOne();

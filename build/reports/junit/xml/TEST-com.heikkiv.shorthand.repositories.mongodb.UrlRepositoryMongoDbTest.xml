@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="heikkiv.local" name="com.heikkiv.shorthand.repositories.mongodb.UrlRepositoryMongoDbTest" tests="5" time="0.221" timestamp="2012-08-13T13:44:04">
+  <properties>
+    <property name="java.vendor" value="Apple Inc." />
+    <property name="lib.dir" value="webapp/WEB-INF/lib" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="jikes.class.path" value=":/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/../Classes/alt-rt.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/../Classes/alt-string.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/../Classes/charsets.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/../Classes/classes.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/../Classes/dt.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/../Classes/jce.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/../Classes/jconsole.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/../Classes/jsse.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/../Classes/management-agent.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/../Classes/ui.jar" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="sun.boot.class.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsfd.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar:/System/Library/Frameworks/JavaVM.framework/Frameworks/JavaRuntimeSupport.framework/Resources/Java/JavaRuntimeSupport.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/ui.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/laf.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/sunrsasign.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsse.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jce.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/charsets.jar" />
+    <property name="ant.file.shorthand" value="/Users/heikki/workspace/shorthand/build.xml" />
+    <property name="src.dir.test" value="src/test/java" />
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="ant.home" value="/usr/share/ant" />
+    <property name="jar.dir" value="build/jar" />
+    <property name="java.runtime.version" value="1.6.0_33-b03-424-11M3720" />
+    <property name="classes.dir.main" value="build/main" />
+    <property name="ivy.lib.dir" value="webapp/WEB-INF/lib" />
+    <property name="user.name" value="heikki" />
+    <property name="web.home" value="webapp" />
+    <property name="awt.nativeDoubleBuffering" value="true" />
+    <property name="deploy.dir" value="webapp/WEB-INF/lib" />
+    <property name="build.dir" value="build" />
+    <property name="user.language" value="en" />
+    <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries" />
+    <property name="ant.project.default-target" value="main" />
+    <property name="ant.file.type.shorthand" value="file" />
+    <property name="ant.project.name" value="shorthand" />
+    <property name="java.version" value="1.6.0_33" />
+    <property name="user.timezone" value="" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="sun.jnu.encoding" value="MacRoman" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="/" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="50.0" />
+    <property name="user.country" value="US" />
+    <property name="jetty.lib.dir" value="jetty" />
+    <property name="java.home" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="ant.file" value="/Users/heikki/workspace/shorthand/build.xml" />
+    <property name="os.version" value="10.7.4" />
+    <property name="path.separator" value=":" />
+    <property name="java.vm.version" value="20.8-b03-424" />
+    <property name="report.dir" value="build/reports" />
+    <property name="ant.library.dir" value="/usr/share/ant/lib" />
+    <property name="java.awt.printerjob" value="apple.awt.CPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="apple.awt.CToolkit" />
+    <property name="config.dir.main" value="webapp/WEB-INF/classes" />
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="classes.dir.test" value="build/test" />
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="user.home" value="/Users/heikki" />
+    <property name="java.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="java.library.path" value=".:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
+    <property name="java.vendor.url" value="http://www.apple.com/" />
+    <property name="java.vm.vendor" value="Apple Inc." />
+    <property name="gopherProxySet" value="false" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner com.heikkiv.shorthand.repositories.mongodb.UrlRepositoryMongoDbTest filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/heikki/workspace/shorthand/build/reports/junit/xml/TEST-com.heikkiv.shorthand.repositories.mongodb.UrlRepositoryMongoDbTest.xml crashfile=/Users/heikki/workspace/shorthand/junitvmwatcher6409134939728850448.properties propsfile=/Users/heikki/workspace/shorthand/junit10248036989554594.properties" />
+    <property name="java.class.path" value="/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/com.springsource.org.aopalliance-1.0.0.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/com.springsource.org.apache.commons.logging-1.1.1.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/com.springsource.org.apache.log4j-1.2.15.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/com.springsource.slf4j.api-1.5.10.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/com.springsource.slf4j.log4j-1.5.10.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/hibernate-validator-4.1.0.Final.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/hibernate-validator-annotation-processor-4.1.0.Final.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/junit-4.8.1.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/mongo-java-driver-2.4.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/org.springframework.aop-3.0.5.RELEASE.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/org.springframework.asm-3.0.5.RELEASE.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/org.springframework.beans-3.0.5.RELEASE.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/org.springframework.context-3.0.5.RELEASE.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/org.springframework.context.support-3.0.5.RELEASE.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/org.springframework.core-3.0.5.RELEASE.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/org.springframework.expression-3.0.5.RELEASE.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/org.springframework.jdbc-3.0.5.RELEASE.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/org.springframework.orm-3.0.5.RELEASE.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/org.springframework.oxm-3.0.5.RELEASE.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/org.springframework.transaction-3.0.5.RELEASE.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/org.springframework.web-3.0.5.RELEASE.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/org.springframework.web.servlet-3.0.5.RELEASE.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/slf4j-api-1.5.6.jar:/Users/heikki/workspace/shorthand/webapp/WEB-INF/lib/validation-api-1.0.0.GA.jar:/Users/heikki/workspace/shorthand/build/jar/shorthand-test.jar:/Users/heikki/workspace/shorthand/build/jar/shorthand.jar:/Users/heikki/workspace/shorthand/jetty/servlet-api-2.5-20081211.jar:/usr/share/java/ant-1.8.2/lib/ant-launcher.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.8.2 compiled on June 3 2011" />
+    <property name="src.dir.main" value="src/main/java" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.file.type" value="file" />
+    <property name="java.vm.specification.version" value="1.0" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="java.io.tmpdir" value="/var/folders/0f/wh2wk3yj6nj0dtkygp6ldbq80000gn/T/" />
+    <property name="java.vendor.url.bug" value="http://bugreport.apple.com/" />
+    <property name="mrj.build" value="11M3720" />
+    <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment" />
+    <property name="os.arch" value="x86_64" />
+    <property name="jetty.dir" value="build/jetty" />
+    <property name="java.ext.dirs" value="/Library/Java/Extensions:/System/Library/Java/Extensions:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext" />
+    <property name="user.dir" value="/Users/heikki/workspace/shorthand" />
+    <property name="mrj.version" value="1070.1.6.0_33-424" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="basedir" value="/Users/heikki/workspace/shorthand" />
+    <property name="ant.java.version" value="1.6" />
+    <property name="ant.core.lib" value="/usr/share/ant/lib/ant.jar" />
+    <property name="file.encoding" value="MacRoman" />
+    <property name="java.specification.version" value="1.6" />
+    <property name="ant.project.invoked-targets" value="clean,test" />
+    <property name="webapp.name" value="ROOT" />
+  </properties>
+  <testcase classname="com.heikkiv.shorthand.repositories.mongodb.UrlRepositoryMongoDbTest" name="find" time="0.14" />
+  <testcase classname="com.heikkiv.shorthand.repositories.mongodb.UrlRepositoryMongoDbTest" name="nextKey" time="0.0050" />
+  <testcase classname="com.heikkiv.shorthand.repositories.mongodb.UrlRepositoryMongoDbTest" name="saveUrl" time="0.0020" />
+  <testcase classname="com.heikkiv.shorthand.repositories.mongodb.UrlRepositoryMongoDbTest" name="findUrl" time="0.0020" />
+  <testcase classname="com.heikkiv.shorthand.repositories.mongodb.UrlRepositoryMongoDbTest" name="urlNotFound" time="0.0030" />
+  <system-out><![CDATA[{ "_id" : "1234" , "key" : 1 , "url" : "http://www.google.com"}
+4
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

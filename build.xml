@@ -51,7 +51,7 @@
 	
     <target name="compile.main">
         <mkdir dir="${classes.dir.main}"/>
-        <javac srcdir="${src.dir.main}" destdir="${classes.dir.main}" classpathref="classpath"/>
+        <javac srcdir="${src.dir.main}" destdir="${classes.dir.main}" classpathref="classpath" debug="on"/>
     	<copy todir="${classes.dir.main}">
             <fileset dir="${src.dir.main}">
             	<exclude name="**/*.java"/>
@@ -63,7 +63,7 @@
 	
 	<target name="compile.test">
         <mkdir dir="${classes.dir.test}"/>
-        <javac srcdir="${src.dir.test}" destdir="${classes.dir.test}" classpathref="classpath.test"/>
+        <javac srcdir="${src.dir.test}" destdir="${classes.dir.test}" classpathref="classpath.test" debug="on"/>
     </target>
 
     <target name="jar" depends="compile">
