@@ -81,7 +81,7 @@
 	
 	<target name="run.junit" depends="jar">
         <mkdir dir="${report.dir}/junit/xml"/>
-        <junit printsummary="yes" haltonfailure="no" fork="yes" maxmemory="512m">
+        <junit printsummary="yes" haltonfailure="yes" fork="yes" maxmemory="512m">
             <formatter type="xml"/>
             <classpath>
                 <path refid="classpath.runtime"/>
